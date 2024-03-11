@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Courgette&family=Exo+2:wght@100;200;300;400;500;600;700;800;900&family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Josefin+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&family=Kaushan+Script&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Overlock+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,400&family=Raleway:wght@200;300;500&family=Satisfy&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: black;
+  overflow-y: hidden;
+  margin: 8px;
+  position: relative;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  line-height: 2;
+  background: #232020;
+  padding: 0 30px;
+  border-radius: 8px;
+}
+
+#logo {
+  font-family: "Satisfy";
+  font-size: 40px;
+}
+
+.icons #search {
+  margin-right: 16px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.icons {
+  display: flex;
+  font-family: "Nunito";
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+}
+
+#login {
+  margin-left: 35px;
+  font-size: 16px;
+  background: white;
+  padding: 5px 20px;
+  color: black;
+  border-radius: 38px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+#signup {
+  margin-left: 15px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.icons span {
+  margin-left: 10px;
+  font-weight: 700;
+  font-size: 27px;
+  /* margin-bottom: 5px; */
+  color: rgb(154, 149, 149);
+}
+
+.icons #upload {
+  margin-right: 25px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#library {
+  color: rgb(160, 155, 155);
+  font-family: "Nunito";
+  font-weight: 800;
+  font-size: 21px;
+  padding: 20px 25px;
+}
+
+.library {
+  background: #232020;
+  border-radius: 8px;
+  width: 500px;
+  height: 89vh;
+  margin-top: 10px;
+}
+
+.library div span {
+  color: rgb(160, 155, 155);
+  font-weight: 800;
+  font-size: 18px;
+  padding-right: 30px;
+}
+
+.library div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.song_cards {
+  background: #232020;
+  width: 100%;
+  height: 89vh;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+#upload-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+#upload-form form {
+  background: white;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+#form_head {
+  padding: 15px 0;
+  font-size: 30px;
+  font-family: "nunito";
+  font-weight: 800;
+}
+
+form input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 5px;
+  background: rgb(210, 208, 208);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 0 5px;
+  font-size: 18px;;
+}
+
+form span{
+  text-align: right;
+  width: 100%;
+  display: block;
+  font-size: 21px;;
+}
+
+#form_btn{
+  font-size: 15px;
+  padding: 8px 14px;
+  background: orangered;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer
+}
+
+form input::placeholder{
+  color: white;
+}
+
+.hover a{
+  text-decoration: none;
+  color: rgb(125, 123, 123);;
+}
+
+.hover a:hover{
+  color: white;
+}
+
+#url_para{
+  color: white;
+}

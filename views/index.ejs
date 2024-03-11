@@ -1,11 +1,75 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Chillify - Web Music Player</title>
+    <link rel="stylesheet" href="/stylesheets/index.css" />
+    <script
+      src="https://kit.fontawesome.com/3f167df4c7.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div id="upload-form" style="display: none">
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <span onclick="closeForm()"
+          ><i class="fa-solid fa-xmark" style="cursor: pointer"></i
+        ></span>
+        <p id="form_head">Upload Songs</p>
+        <p>
+          <input
+            type="text"
+            name="title"
+            id=""
+            placeholder="Song Name"
+            required
+          />
+        </p>
+        <p>
+          <input
+            type="text"
+            name="artist"
+            id=""
+            placeholder="Artist Name"
+            required
+          />
+        </p>
+        <input type="file" name="song" id="" required />
+        <button id="form_btn" type="submit">Upload</button>
+      </form>
+    </div>
+
+    <div id="main">
+      <nav>
+        <div class="logo">
+          <span id="logo"><b>Chillify</b></span>
+        </div>
+        <div class="icons">
+          <p id="upload" class="hover" onclick="openForm()">
+            <i class="fa-solid fa-cloud-arrow-up" title="upload"></i>
+          </p>
+          <p id="search" class="hover">
+            <i class="fa-solid fa-magnifying-glass" title="search"></i>
+          </p>
+          <span>|</span>
+          <p id="signup" class="hover"><a href="/signup">Sign up</a></p>
+          <p id="login" class="hover"><a href="#">Log in</a></p>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="library">
+          <div>
+            <p id="library"><i class="fa-solid fa-bookmark"></i> My Library</p>
+            <span><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <div class="library-body"></div>
+        </div>
+        <div class="song_cards">
+          <div class="song-card"></div>
+          <div class="controller"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="javascripts/script.js"></script>
   </body>
 </html>
