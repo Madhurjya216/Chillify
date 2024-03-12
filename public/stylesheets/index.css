@@ -48,10 +48,17 @@ nav {
   font-size: 16px;
   background: white;
   padding: 5px 20px;
-  color: black;
   border-radius: 38px;
   font-weight: 800;
   cursor: pointer;
+}
+
+#login a {
+  color: black !important;
+}
+
+#login a:hover {
+  color: rgb(145, 145, 145) !important;
 }
 
 #signup {
@@ -149,39 +156,47 @@ form input {
   border-radius: 5px;
   color: white;
   padding: 0 5px;
-  font-size: 18px;;
+  font-size: 18px;
 }
 
-form span{
+form span {
   text-align: right;
   width: 100%;
   display: block;
-  font-size: 21px;;
+  font-size: 21px;
 }
 
-#form_btn{
+#form_btn {
   font-size: 15px;
   padding: 8px 14px;
   background: orangered;
   color: white;
   border-radius: 5px;
   border: none;
-  cursor: pointer
+  cursor: pointer;
 }
 
-form input::placeholder{
+form input::placeholder {
   color: white;
 }
 
-.hover a{
+.hover {
+  color: rgb(125, 123, 123);
+}
+
+.hover:hover {
+  color: white;
+}
+
+.hover a {
   text-decoration: none;
-  color: rgb(125, 123, 123);;
+  color: rgb(125, 123, 123);
 }
 
-.hover a:hover{
+.hover a:hover {
   color: white;
 }
 
-#url_para{
+#url_para {
   color: white;
 }
