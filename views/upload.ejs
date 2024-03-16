@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/upload.css" />
+    <script
+      src="https://kit.fontawesome.com/3f167df4c7.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>upload</title>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <span id="logo"><b>Chillify</b></span>
+      </div>
+      <div class="icons">
+        <p id="upload" class="hover" onclick="openForm()">
+          <a href="/upload"><i class="fa-solid fa-cloud-arrow-up" title="upload"></i></a>
+        </p>
+        <p id="search" class="hover">
+          <i class="fa-solid fa-magnifying-glass" title="search"></i>
+        </p>
+        <span>|</span>
+        <!-- <p id="signup" class="hover"><a href="/signup">Sign up</a></p>
+        <p id="login" class="hover"><a href="/login">Log in</a></p> -->
+        <div class="user-profile">
+          <i class="fa-solid fa-user" title="user"></i>
+        </div>
+      </div>
+    </nav>
+    <div class="upload-container">
+      <div class="upload-form">
+        <form action="" method="post" enctype="multipart/form-data">
+          <div class="file_upload">
+            <input type="file" name="song" id="song-input" />
+            <p><i class="fa-solid fa-icons"></i></p>
+            <p>What's new this time!</p>
+          </div>
+        </form>
+      </div>
+      <div class="upload-inputs">
+        <p><input type="text" name="title" id="" /></p>
+        <p><input type="text" name="artish" id="" /></p>
+        <input type="submit" value="Add Song" id="submit_btn" />
+      </div>
+    </div>
+
+    <script>
+      function toggleBtn() {
+        const form = document.querySelector("#song-input");
+        document
+          .querySelector(".upload-form form .file_upload")
+          .addEventListener("click", function () {
+            form.click();
+          });
+      }
+      toggleBtn();
+    </script>
+  </body>
+</html>

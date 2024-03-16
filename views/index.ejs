@@ -2,42 +2,13 @@
 <html>
   <head>
     <title>Chillify - Web Music Player</title>
-    <link rel="stylesheet" href="/stylesheets/index.css" />
+    <link rel="stylesheet" href="/stylesheets/index.css" /> 
     <script
       src="https://kit.fontawesome.com/3f167df4c7.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
-    <div id="upload-form" style="display: none">
-      <form action="/upload" method="post" enctype="multipart/form-data">
-        <span onclick="closeForm()"
-          ><i class="fa-solid fa-xmark" style="cursor: pointer"></i
-        ></span>
-        <p id="form_head">Upload Songs</p>
-        <p>
-          <input
-            type="text"
-            name="title"
-            id=""
-            placeholder="Song Name"
-            required
-          />
-        </p>
-        <p>
-          <input
-            type="text"
-            name="artist"
-            id=""
-            placeholder="Artist Name"
-            required
-          />
-        </p>
-        <input type="file" name="song" id="" required />
-        <button id="form_btn" type="submit">Upload</button>
-      </form>
-    </div>
-
     <div id="main">
       <nav>
         <div class="logo">
@@ -45,14 +16,17 @@
         </div>
         <div class="icons">
           <p id="upload" class="hover" onclick="openForm()">
-            <i class="fa-solid fa-cloud-arrow-up" title="upload"></i>
+            <a href="/upload"><i class="fa-solid fa-cloud-arrow-up" title="upload"></i></a>
           </p>
           <p id="search" class="hover">
             <i class="fa-solid fa-magnifying-glass" title="search"></i>
           </p>
           <span>|</span>
-          <p id="signup" class="hover"><a href="/signup">Sign up</a></p>
-          <p id="login" class="hover"><a href="/login">Log in</a></p>
+          <!-- <p id="signup" class="hover"><a href="/signup">Sign up</a></p>
+          <p id="login" class="hover"><a href="/login">Log in</a></p> -->
+          <div class="user-profile">
+            <i class="fa-solid fa-user" title="user"></i>
+          </div>
         </div>
       </nav>
       <div class="container">

@@ -18,6 +18,10 @@ router.get("/login", function (req, res, next) {
   res.render("login");
 });
 
+router.get("/upload", function (req, res, next) {
+  res.render("upload");
+});
+
 /* POST routes */
 router.post("/signup", function (req, res, next) {
   try {
@@ -50,7 +54,7 @@ router.get("/logout", function (req, res, next) {
   req.logout(function (err) {
     if (err) return next(err);
     res.redirect("/login");
-  }); 
+  });
 });
 
 function isloggIn(req, res, next) {
@@ -59,6 +63,5 @@ function isloggIn(req, res, next) {
   }
   res.redirect("/login");
 }
-
 
 module.exports = router;
