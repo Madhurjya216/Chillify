@@ -4,6 +4,21 @@ const User = require("./users");
 const pl = require("passport-local");
 const passport = require("passport");
 passport.use(new pl(User.authenticate()));
+const Song = require("./song");
+const multer = require("multer");
+
+// multer code
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "/uploads");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, file.fieldname + "-" + uniqueSuffix);
+  },
+});
+
+const upload = multer({ storage: storage });
 
 /* GET routes */
 router.get("/home", isloggIn, function (req, res, next) {
@@ -22,7 +37,29 @@ router.get("/upload", function (req, res, next) {
   res.render("upload");
 });
 
+router.get("/user", function (req, res, next) {
+  res.render("user");
+});
+
 /* POST routes */
+router.post("/upload", upload.single("song"), async (req, res) => {
+  try {
+    const user = await User({
+      username: req.session.passport.user,
+    });
+    const song = await Song.create({
+      song: req.file.filename,
+      title: req.body.title,
+      artish: req.body.artish,
+    });
+    await song.save();
+
+    res.redirect("/home");
+  } catch (error) {
+    console.log(`error found >>>`, error); 
+  }
+});
+
 router.post("/signup", function (req, res, next) {
   try {
     const data = User({
@@ -33,7 +70,7 @@ router.post("/signup", function (req, res, next) {
 
     User.register(data, req.body.password).then(function (registeredUser) {
       passport.authenticate("local")(req, res, function () {
-        res.redirect(data, "/home");
+        res.redirect("/home");
       });
     });
   } catch (error) {

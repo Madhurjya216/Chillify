@@ -13,20 +13,22 @@
   <body>
     <nav>
       <div class="logo">
-        <span id="logo"><b>Chillify</b></span>
+        <a href="/home"
+          ><span id="logo"><b>Chillify</b></span></a
+        >
       </div>
       <div class="icons">
-        <p id="upload" class="hover" onclick="openForm()">
-          <a href="/upload"><i class="fa-solid fa-cloud-arrow-up" title="upload"></i></a>
+        <p id="upload" class="hover">
+          <a href="/upload"
+            ><i class="fa-solid fa-cloud-arrow-up" title="upload"></i
+          ></a>
         </p>
         <p id="search" class="hover">
           <i class="fa-solid fa-magnifying-glass" title="search"></i>
         </p>
         <span>|</span>
-        <!-- <p id="signup" class="hover"><a href="/signup">Sign up</a></p>
-        <p id="login" class="hover"><a href="/login">Log in</a></p> -->
         <div class="user-profile">
-          <i class="fa-solid fa-user" title="user"></i>
+          <a href="/user"><i class="fa-solid fa-user" title="user"></i></a>
         </div>
       </div>
     </nav>
@@ -38,12 +40,12 @@
             <p><i class="fa-solid fa-icons"></i></p>
             <p>What's new this time!</p>
           </div>
+        </div>
+        <div class="upload-inputs">
+          <p><input type="text" name="title" id="" /></p>
+          <p><input type="text" name="artish" id="" /></p>
+          <input type="submit" value="Add Song" id="submit_btn" />
         </form>
-      </div>
-      <div class="upload-inputs">
-        <p><input type="text" name="title" id="" /></p>
-        <p><input type="text" name="artish" id="" /></p>
-        <input type="submit" value="Add Song" id="submit_btn" />
       </div>
     </div>
 
