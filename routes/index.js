@@ -7,22 +7,22 @@ passport.use(new pl(User.authenticate()));
 const Song = require("./song");
 const multer = require("multer");
 
-// multer code
+// multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "/uploads");
+    cb(null, "./uploads");
   },
   filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, file.fieldname + "-" + uniqueSuffix);
+    cb(null, `${Date.now()}-${file.originalname}`);
   },
 });
-
 const upload = multer({ storage: storage });
 
-/* GET routes */
-router.get("/home", isloggIn, function (req, res, next) {
-  res.render("index", { title: "Express" });
+// /* GET routes */ last thing did
+router.get("/home", isloggIn, async function (req, res, next) {
+  const allSongs = await Song.find({});
+  console.log(allSongs);
+  res.render("index", { allSongs });
 });
 
 router.get("/signup", function (req, res, next) {
@@ -42,11 +42,8 @@ router.get("/user", function (req, res, next) {
 });
 
 /* POST routes */
-router.post("/upload", upload.single("song"), async (req, res) => {
+router.post("/upload", upload.single("songfile"), async (req, res) => {
   try {
-    const user = await User({
-      username: req.session.passport.user,
-    });
     const song = await Song.create({
       song: req.file.filename,
       title: req.body.title,
@@ -56,7 +53,7 @@ router.post("/upload", upload.single("song"), async (req, res) => {
 
     res.redirect("/home");
   } catch (error) {
-    console.log(`error found >>>`, error); 
+    console.log(`error found >>>`, error);
   }
 });
 
