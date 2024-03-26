@@ -12,7 +12,9 @@
     <div id="main">
       <nav>
         <div class="logo">
-          <a href="/home"><span id="logo"><b>Chillify</b></span></a>
+          <a href="/"
+            ><span id="logo"><b>Chillify</b></span></a
+          >
         </div>
         <div class="icons">
           <p id="upload" class="hover">
@@ -36,7 +38,15 @@
             <span><i class="fa-solid fa-plus"></i></span>
           </div>
           <div class="library-body">
-            
+            <% if(allSongs.length > 0) { %> <% allSongs.forEach(item => { %>
+            <div>
+              <p>
+                <a href="#" class="song-link" data-src="<%= item.audio %>"
+                  ><%= item.title %></a
+                >
+              </p>
+            </div>
+            <% }) %> <% } %>
           </div>
         </div>
         <div class="song_cards">
@@ -46,6 +56,26 @@
       </div>
     </div>
 
-    <script src="javascripts/script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const songLinks = document.querySelectorAll(".song-link");
+
+        songLinks.forEach(function (link) {
+          link.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent the default link behavior (navigating to a new page)
+
+            const songUrl = this.getAttribute("data-src");
+            playSong(songUrl);
+          });
+        });
+
+        function playSong(songUrl) {
+          const audioPlayer = new Audio(songUrl);
+          audioPlayer.play();
+        }
+      });
+    </script>
+
+    <!-- <script src="javascripts/script.js"></script> -->
   </body>
 </html>

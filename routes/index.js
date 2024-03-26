@@ -19,9 +19,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // /* GET routes */ last thing did
-router.get("/home", isloggIn, async function (req, res, next) {
+router.get("/", isloggIn, async function (req, res, next) {
   const allSongs = await Song.find({});
-  console.log(allSongs);
+  console.log(allSongs)
   res.render("index", { allSongs });
 });
 
@@ -51,7 +51,7 @@ router.post("/upload", upload.single("songfile"), async (req, res) => {
     });
     await song.save();
 
-    res.redirect("/home");
+    res.redirect("/");
   } catch (error) {
     console.log(`error found >>>`, error);
   }
@@ -67,7 +67,7 @@ router.post("/signup", function (req, res, next) {
 
     User.register(data, req.body.password).then(function (registeredUser) {
       passport.authenticate("local")(req, res, function () {
-        res.redirect("/home");
+        res.redirect("/");
       });
     });
   } catch (error) {
@@ -78,7 +78,7 @@ router.post("/signup", function (req, res, next) {
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/home",
+    successRedirect: "/",
     failureRedirect: "/login",
   }),
   function (req, res) {}
